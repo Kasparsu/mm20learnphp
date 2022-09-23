@@ -2,8 +2,10 @@
     "name": "kaspar.suursalu/learnphp",
     "autoload": {
         "psr-4": {
-            "KasparSuursalu\\Learnphp\\": "src/"
+            "App\\": "src/"
         }
     },
-    "require": {}
+    "require": {
+        "symfony/var-dumper": "^6.1"
+    }
 }

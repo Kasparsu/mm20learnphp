@@ -1,9 +1,7 @@
 <?php
 session_start();
-spl_autoload_register(function($className){
-    $className = substr($className, strlen('App\\'));
-    require_once(__DIR__ . "/../src/$className.php");
-});
+
+require __DIR__ . '/../vendor/autoload.php';
 
 require(__DIR__ . '/../routes.php');
 require(__DIR__ . '/../helpers.php');
