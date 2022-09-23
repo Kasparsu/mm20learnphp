@@ -20,7 +20,7 @@ class AuthController
             $user->fname = $_POST['fname'];
             $user->lname = $_POST['lname'];
             $user->email = $_POST['email'];
-            $user->password = $_POST['password'];
+            $user->password = md5($_POST['password']);
             $user->save();
         }
         header('Location: /login');
@@ -28,9 +28,14 @@ class AuthController
 
     public function login(){
          $user = User::where('email', $_POST['email']);
-         if($user && $user->password == $_POST['password']){
+         if($user && $user->password == md5($_POST['password'])){
             $_SESSION['user_id'] = $user->id;
          }
+        header('Location: /');
+    }
+
+    public function logout(){
+        unset($_SESSION['user_id']);
         header('Location: /');
     }
 }

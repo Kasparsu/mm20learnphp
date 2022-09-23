@@ -47,7 +47,18 @@
         <div class="navbar-end">
             <div class="navbar-item">
                 <?php if(\App\Models\User::auth()): ?>
-                    <strong><?=\App\Models\User::auth()->fname . ' ' . \App\Models\User::auth()->lname?></strong>
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">
+                            <strong><?=\App\Models\User::auth()->fname . ' ' . \App\Models\User::auth()->lname?></strong>
+                        </a>
+
+                        <div class="navbar-dropdown">
+                            <hr class="navbar-divider">
+                            <a href="/logout" class="navbar-item">
+                                Logout
+                            </a>
+                        </div>
+                    </div>
                 <?php else: ?>
                 <div class="buttons">
                     <a href="/register" class="button is-primary">
